@@ -1,4 +1,10 @@
-import os 
+import os, json, time
+
+def prnt(user, passw):
+  os.system('clear')
+  print("Logon")
+  print("Enter your username: " + user)
+  print("Enter your password: " + passw)
 
 os.system('clear')
 
@@ -12,8 +18,14 @@ while loop<(len(password)):
   prntpword = prntpword + "*"
   loop = loop+1
 
-os.system('clear')
+prnt(username, prntpword)
 
-print("Logon")
-print("Enter your username: " + username)
-print("Enter your password: " + prntpword)
+data = {1: username,2: password}
+print(data)
+
+object = json.dumps(data, indent = 0)
+with open('accounts/DirectServer/RequestTokenLog.json', "w") as outfile:
+  outfile.write(object)
+  
+time.sleep(1)
+

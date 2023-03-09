@@ -7,7 +7,6 @@ lname = input("What's your last name? ")
 gen = input("What's your gender(male/female/other)?")
 dname = input("What should your display name be? ")
 password = input("Enter a password. ")
-email = input("Enter your email. ")
     
 print('This data will be processed soon')
 
@@ -17,7 +16,7 @@ os.system('clear') #cls for Windows(?)
 
 print('Creating JSON')
 
-data = {1: fname, 2: lname, 3: gen, 4: dname, 5: password, 6: email}
+data = {1: fname, 2: lname, 3: gen, 4: dname, 5: password}
 print(data)
 
 object = json.dumps(data, indent = 0)
@@ -25,5 +24,5 @@ object = json.dumps(data, indent = 0)
 with open('accounts/DirectServer/AccountData.json', "w") as outfile:
   outfile.write(object)
 
-print('Now uploading data')
-#POST request. Maybe HTTPS request?
+print("You will now be redirected to the log-in screen.")
+os.system('python accounts/DirectServer/Logon.py')
